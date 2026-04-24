@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="HEMLO ARMY — Elite eFootball Crew. Dominate. Compete. Conquer." />
+  <title>HEMLO ARMY | Dominate. Compete. Conquer.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ░░ LOADER ░░ -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">HEMLO<span>ARMY</span></div>
+      <div class="loader-bar-track"><div class="loader-bar-fill" id="loaderFill"></div></div>
+      <p class="loader-status" id="loaderStatus">Initialising squad...</p>
+    </div>
+  </div>
+
+  <!-- ░░ TOAST CONTAINER ░░ -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- ░░ NAVBAR ░░ -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-wrap">
+      <a href="#hero" class="nav-logo">HEMLO<span>ARMY</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#achievements" class="nav-a">Achievements</a></li>
+        <li><a href="#managers"    class="nav-a">Managers</a></li>
+        <li><a href="#lineups"     class="nav-a">Lineups</a></li>
+        <li><a href="#contact"     class="nav-a">Contact</a></li>
+        <li><a href="#contact" class="nav-a nav-cta">Join Crew</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ░░ HERO ░░ -->
+  <section id="hero" class="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">⚽ eFootball Crew</div>
+      <h1 class="hero-title reveal-up delay-1">HEMLO<br><em>ARMY</em></h1>
+      <p class="hero-tagline reveal-up delay-2">Dominate.&nbsp; Compete.&nbsp; Conquer.</p>
+      <div class="hero-stats reveal-up delay-3">
+        <div class="hstat"><span class="hstat-n" data-target="9">0</span><span class="hstat-l">Championships</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-n" data-target="24">0</span><span class="hstat-l">Tournaments</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-n">ELITE</span><span class="hstat-l">Crew Status</span></div>
+      </div>
+      <div class="hero-cta reveal-up delay-4">
+        <a href="#achievements" class="btn btn-primary ripple">
+          <span>View Achievements</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost ripple">Join Crew</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span class="scroll-word">SCROLL</span>
+      <div class="scroll-bar"></div>
+    </div>
+  </section>
+
+  <!-- ░░ ACHIEVEMENTS ░░ -->
+  <section id="achievements" class="section">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-badge">Hall of Glory</span>
+        <h2 class="sec-title">ACHIEVEMENTS</h2>
+        <p class="sec-sub">Our legacy on the battlefield — earned through skill, strategy, and relentless drive.</p>
+      </div>
+
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-filter="all">All <span class="f-count" id="fc-all">24</span></button>
+        <button class="filter-btn" data-filter="champion">🏆 Champions</button>
+        <button class="filter-btn" data-filter="runner">🥈 Runners Up</button>
+        <button class="filter-btn" data-filter="top4">🎖️ Top 4</button>
+      </div>
+
+      <div class="ach-grid" id="achGrid">
+        <!-- JS rendered -->
+      </div>
+
+      <div class="view-more-wrap">
+        <button class="btn btn-outline" id="viewMoreBtn">
+          <span id="viewMoreLabel">Show All Achievements</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ MANAGERS ░░ -->
+  <section id="managers" class="section managers-section">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-badge">Command Center</span>
+        <h2 class="sec-title">MANAGERS</h2>
+        <p class="sec-sub">The minds behind the victories. Leadership forged in competition.</p>
+      </div>
+      <div class="mgr-label-row"><span class="mgr-tag current-tag">● Active</span><h3 class="mgr-group-title">Current Managers</h3></div>
+      <div class="mgr-grid" id="currentMgrGrid"></div>
+      <div class="ex-mgr-wrapper">
+        <button class="ex-toggle" id="exToggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          Former Managers
+        </button>
+        <div class="mgr-grid ex-grid hidden" id="exMgrGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ LINEUPS ░░ -->
+  <section id="lineups" class="section lineups-section">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-badge">The Squad</span>
+        <h2 class="sec-title">LINEUPS</h2>
+        <p class="sec-sub">Elite squads built to dominate every tournament they enter.</p>
+      </div>
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-tab="oathkeepers">HEMLO OATHKEEPERS</button>
+        <button class="tab" data-tab="outlanders">HEMLO OUTLANDERS</button>
+      </div>
+
+      <!-- OATHKEEPERS -->
+      <div class="tab-pane active" id="pane-oathkeepers">
+        <div class="lineup-wrap">
+          <div class="lineup-meta-row">
+            <div class="lm-chip"><span class="lm-k">Manager</span><span class="lm-v">Xman</span></div>
+            <div class="lm-chip"><span class="lm-k">Assistant</span><span class="lm-v">Jester</span></div>
+            <div class="lm-chip gold"><span class="lm-k">Captain</span><span class="lm-v">Xman ©</span></div>
+            <div class="lm-chip"><span class="lm-k">Notable Win</span><span class="lm-v">Liga F9 Duo #2</span></div>
+          </div>
+          <div class="pitch-wrap">
+            <div class="pitch">
+              <div class="pitch-lines">
+                <div class="pl-centre-circle"></div>
+                <div class="pl-centre-line"></div>
+                <div class="pl-penalty top"></div>
+                <div class="pl-penalty bot"></div>
+              </div>
+              <div class="pitch-players" id="pitchOath">
+                <!-- Formation 4-4-2 -->
+                <div class="pr-row"><div class="pnode gk" title="Goalkeeper">GK</div></div>
+                <div class="pr-row"><div class="pnode def">LB</div><div class="pnode def">CB</div><div class="pnode def">CB</div><div class="pnode def">RB</div></div>
+                <div class="pr-row"><div class="pnode mid">LM</div><div class="pnode mid">CM</div><div class="pnode mid">CM</div><div class="pnode mid">RM</div></div>
+                <div class="pr-row"><div class="pnode fwd">ST</div><div class="pnode fwd">ST</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="squad-list">
+            <h4 class="squad-title">Squad Roster</h4>
+            <div class="squad-grid">
+              <div class="squad-player captain-tag"><span class="sq-badge cap">CAP</span> Xman</div>
+              <div class="squad-player"><span class="sq-badge mng">MNG</span> Xman</div>
+              <div class="squad-player"><span class="sq-badge ast">AST</span> Jester</div>
+              <div class="squad-player"><span class="sq-badge ply">PLY</span> Shaurya</div>
+              <div class="squad-player"><span class="sq-badge ply">PLY</span> Pattharbaaz</div>
+              <div class="squad-player"><span class="sq-badge ply">PLY</span> Wolf Gaming</div>
+              <div class="squad-player sub"><span class="sq-badge sub">SUB</span> TBD</div>
+              <div class="squad-player sub"><span class="sq-badge sub">SUB</span> TBD</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTLANDERS -->
+      <div class="tab-pane" id="pane-outlanders">
+        <div class="lineup-wrap">
+          <div class="lineup-meta-row">
+            <div class="lm-chip"><span class="lm-k">Manager</span><span class="lm-v">Shaurya</span></div>
+            <div class="lm-chip"><span class="lm-k">Assistant</span><span class="lm-v">Pattharbaaz</span></div>
+            <div class="lm-chip gold"><span class="lm-k">Captain</span><span class="lm-v">Shaurya ©</span></div>
+            <div class="lm-chip"><span class="lm-k">Status</span><span class="lm-v">Active</span></div>
+          </div>
+          <div class="pitch-wrap">
+            <div class="pitch">
+              <div class="pitch-lines">
+                <div class="pl-centre-circle"></div>
+                <div class="pl-centre-line"></div>
+                <div class="pl-penalty top"></div>
+                <div class="pl-penalty bot"></div>
+              </div>
+              <div class="pitch-players">
+                <!-- Formation 4-3-3 -->
+                <div class="pr-row"><div class="pnode gk">GK</div></div>
+                <div class="pr-row"><div class="pnode def">LB</div><div class="pnode def">CB</div><div class="pnode def">CB</div><div class="pnode def">RB</div></div>
+                <div class="pr-row"><div class="pnode mid">CM</div><div class="pnode mid cam">CAM</div><div class="pnode mid">CM</div></div>
+                <div class="pr-row"><div class="pnode fwd">LW</div><div class="pnode fwd">ST</div><div class="pnode fwd">RW</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="squad-list">
+            <h4 class="squad-title">Squad Roster</h4>
+            <div class="squad-grid">
+              <div class="squad-player captain-tag"><span class="sq-badge cap">CAP</span> Shaurya</div>
+              <div class="squad-player"><span class="sq-badge mng">MNG</span> Shaurya</div>
+              <div class="squad-player"><span class="sq-badge ast">AST</span> Pattharbaaz</div>
+              <div class="squad-player"><span class="sq-badge ply">PLY</span> Xman</div>
+              <div class="squad-player"><span class="sq-badge ply">PLY</span> Jester</div>
+              <div class="squad-player"><span class="sq-badge ply">PLY</span> Wolf Gaming</div>
+              <div class="squad-player sub"><span class="sq-badge sub">SUB</span> TBD</div>
+              <div class="squad-player sub"><span class="sq-badge sub">SUB</span> TBD</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ CONTACT ░░ -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-badge">Join The Elite</span>
+        <h2 class="sec-title">CONTACT</h2>
+        <p class="sec-sub">Ready to compete at the highest level? Trials are open for elite players only.</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-glow-ring"></div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="ci-row"><span class="ci-k">Platform</span><span class="ci-v">Instagram</span></div>
+            <div class="ci-row"><span class="ci-k">Handle</span><span class="ci-v">@hemloarmy</span></div>
+            <div class="ci-row"><span class="ci-k">Owner</span><span class="ci-v">Wolf Gaming</span></div>
+            <div class="ci-row"><span class="ci-k">Trials</span><span class="ci-v">Open — Apply Now</span></div>
+          </div>
+          <div class="contact-right">
+            <p class="contact-desc">
+              Contact <strong>@hemloarmy</strong> on Instagram for crew trials.<br>
+              Only the elite make the cut. Prove your worth.
+            </p>
+            <a href="https://instagram.com/hemloarmy" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg ripple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <span>Contact on Instagram</span>
+            </a>
+            <p class="contact-owner">Crew Owner: <strong>Wolf Gaming</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">HEMLO<span>ARMY</span></div>
+      <p class="footer-tag">Dominate. Compete. Conquer.</p>
+      <div class="footer-links">
+        <a href="#achievements">Achievements</a>
+        <a href="#managers">Managers</a>
+        <a href="#lineups">Lineups</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p class="footer-copy">© 2024 HEMLO ARMY &nbsp;•&nbsp; Owner: Wolf Gaming &nbsp;•&nbsp; All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ░░ BACK TO TOP ░░ -->
+  <button id="backTop" class="back-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- ░░ ACHIEVEMENT MODAL ░░ -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Achievement detail">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
